@@ -10,6 +10,7 @@ import {
   Instagram,
   Linkedin,
   Phone,
+  ChevronDown,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
