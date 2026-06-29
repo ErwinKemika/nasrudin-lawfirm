@@ -46,7 +46,7 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
   /* Custom brand tokens */
-  --color-brand-bg: #07051a;
+  --color-brand-bg: #06040f;
   --color-brand-accent: #a594f9;
   --font-playfair: "Playfair Display", serif;
   --font-inter: "Inter", sans-serif;
@@ -149,4 +149,18 @@
 @utility dot-grid {
   background-image: radial-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px);
   background-size: 24px 24px;
+}
+
+@utility bg-spotlight {
+  &::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+      radial-gradient(ellipse 120% 100% at 0% 0%, rgba(91, 33, 182, 0.9) 0%, rgba(91, 33, 182, 0.45) 18%, transparent 55%),
+      radial-gradient(ellipse 90% 80% at 20% 5%, rgba(139, 92, 246, 0.3) 0%, transparent 50%),
+      #06040f;
+  }
 }
