@@ -100,11 +100,7 @@ function SocialButton({ href, icon, label }: SocialButtonProps) {
 
 function Index() {
   return (
-    <div className="relative min-h-screen overflow-hidden bg-brand-bg font-inter">
-      {/* Radial glows */}
-      <div className="pointer-events-none absolute -top-[180px] left-1/2 h-[480px] w-[480px] -translate-x-1/2 rounded-full bg-[#a594f9]/[0.08] blur-[100px]" />
-      <div className="pointer-events-none absolute -bottom-[100px] -right-[80px] h-[320px] w-[320px] rounded-full bg-purple-500/[0.06] blur-[90px]" />
-
+    <div className="bg-spotlight relative min-h-screen overflow-hidden font-inter">
       {/* Dot grid */}
       <div className="pointer-events-none absolute inset-0 dot-grid opacity-[0.12]" />
 
