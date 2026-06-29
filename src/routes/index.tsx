@@ -127,6 +127,8 @@ function SocialButton({ href, icon, label }: SocialButtonProps) {
 }
 
 function Index() {
+  const [openService, setOpenService] = useState<string | null>(null);
+
   return (
     <div className="bg-spotlight relative min-h-screen overflow-hidden font-inter">
       {/* Dot grid */}
