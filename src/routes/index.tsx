@@ -179,29 +179,53 @@ function Index() {
         <SectionLabel>Layanan</SectionLabel>
 
         <div className="flex w-full flex-col gap-2.5">
-          <ServiceButton
-            href="https://nasrudin.id/strategic-land-management/"
-            icon={<Scale className="h-[18px] w-[18px] text-white/55" strokeWidth={1.5} />}
-            title="Dispute Resolution & Litigasi"
-            description="Penyelesaian sengketa pertanahan"
+          <ServiceAccordion
+            item={{
+              id: "dispute",
+              icon: <Scale className="h-[18px] w-[18px] text-white/55" strokeWidth={1.5} />,
+              title: "Dispute Resolution & Litigasi",
+              subtitle: "Penyelesaian sengketa pertanahan",
+              content:
+                "Penanganan sengketa kepemilikan tanah, batas wilayah, dan konflik penguasaan lahan — mulai dari analisis awal hingga pendampingan litigasi maupun non-litigasi.",
+            }}
+            isOpen={openService === "dispute"}
+            onToggle={() => setOpenService(openService === "dispute" ? null : "dispute")}
           />
-          <ServiceButton
-            href="https://nasrudin.id/strategic-land-management/"
-            icon={<Building2 className="h-[18px] w-[18px] text-white/55" strokeWidth={1.5} />}
-            title="Corporate Land Services"
-            description="Layanan lahan korporasi profesional"
+          <ServiceAccordion
+            item={{
+              id: "corporate",
+              icon: <Building2 className="h-[18px] w-[18px] text-white/55" strokeWidth={1.5} />,
+              title: "Corporate Land Services",
+              subtitle: "Layanan lahan korporasi profesional",
+              content:
+                "Pendampingan akuisisi lahan korporat secara menyeluruh, termasuk analisis legalitas, negosiasi, dan kepastian hukum untuk transaksi bernilai tinggi.",
+            }}
+            isOpen={openService === "corporate"}
+            onToggle={() => setOpenService(openService === "corporate" ? null : "corporate")}
           />
-          <ServiceButton
-            href="https://nasrudin.id/strategic-land-management/"
-            icon={<FileText className="h-[18px] w-[18px] text-white/55" strokeWidth={1.5} />}
-            title="ATR/BPN & Administrasi"
-            description="Administrasi pertanahan & kepegawaian"
+          <ServiceAccordion
+            item={{
+              id: "atr-bpn",
+              icon: <FileText className="h-[18px] w-[18px] text-white/55" strokeWidth={1.5} />,
+              title: "ATR/BPN & Administrasi",
+              subtitle: "Administrasi pertanahan & kepegawaian",
+              content:
+                "Pengurusan sertifikat tanah, pendaftaran hak, perizinan, dan berbagai kebutuhan administratif pertanahan secara profesional dan efisien.",
+            }}
+            isOpen={openService === "atr-bpn"}
+            onToggle={() => setOpenService(openService === "atr-bpn" ? null : "atr-bpn")}
           />
-          <ServiceButton
-            href="https://nasrudin.id/audit-kepatuhan-hukum/"
-            icon={<Search className="h-[18px] w-[18px] text-white/55" strokeWidth={1.5} />}
-            title="Legal Due Diligence (LDD)"
-            description="Audit kepatuhan hukum properti"
+          <ServiceAccordion
+            item={{
+              id: "ldd",
+              icon: <Search className="h-[18px] w-[18px] text-white/55" strokeWidth={1.5} />,
+              title: "Legal Due Diligence (LDD)",
+              subtitle: "Audit kepatuhan hukum properti",
+              content:
+                "Audit hukum pertanahan komprehensif untuk meminimalkan risiko sebelum transaksi atau pengembangan proyek yang melibatkan aset tanah.",
+            }}
+            isOpen={openService === "ldd"}
+            onToggle={() => setOpenService(openService === "ldd" ? null : "ldd")}
           />
         </div>
 
