@@ -49,31 +49,58 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
-interface ServiceButtonProps {
-  href: string;
+import { useState } from "react";
+
+interface ServiceItem {
+  id: string;
   icon: React.ReactNode;
   title: string;
-  description: string;
+  subtitle: string;
+  content: string;
 }
 
-function ServiceButton({ href, icon, title, description }: ServiceButtonProps) {
+function ServiceAccordion({
+  item,
+  isOpen,
+  onToggle,
+}: {
+  item: ServiceItem;
+  isOpen: boolean;
+  onToggle: () => void;
+}) {
   return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="glass-card flex w-full items-center gap-3.5 rounded-xl p-3.5"
-    >
-      <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-white/[0.04]">
-        {icon}
-      </div>
-      <div className="min-w-0 flex-1">
-        <div className="text-sm font-medium text-white/90">{title}</div>
-        <div className="mt-0.5 text-[11px] leading-relaxed text-white/35">
-          {description}
+    <div className="w-full overflow-hidden rounded-xl">
+      <button
+        onClick={onToggle}
+        className="glass-card flex w-full items-center gap-3.5 rounded-xl p-3.5 text-left"
+      >
+        <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-white/[0.04]">
+          {item.icon}
+        </div>
+        <div className="min-w-0 flex-1">
+          <div className="text-sm font-medium text-white/90">{item.title}</div>
+          <div className="mt-0.5 text-[11px] leading-relaxed text-white/35">
+            {item.subtitle}
+          </div>
+        </div>
+        <ChevronDown
+          className={`h-4 w-4 flex-shrink-0 text-white/40 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
+          strokeWidth={2}
+        />
+      </button>
+      <div
+        className="grid transition-all duration-300 ease-out"
+        style={{
+          gridTemplateRows: isOpen ? "1fr" : "0fr",
+        }}
+      >
+        <div className="min-h-0 overflow-hidden">
+          <div className="px-3.5 pb-3.5 pt-2 text-[12px] leading-relaxed text-white/50">
+            {item.content}
+          </div>
         </div>
       </div>
-    </a>
+    </div>
   );
 }
 
