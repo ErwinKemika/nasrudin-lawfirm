@@ -10,6 +10,7 @@ import {
   Instagram,
   Linkedin,
   Phone,
+  ChevronDown,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -48,31 +49,58 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
-interface ServiceButtonProps {
-  href: string;
+import { useState } from "react";
+
+interface ServiceItem {
+  id: string;
   icon: React.ReactNode;
   title: string;
-  description: string;
+  subtitle: string;
+  content: string;
 }
 
-function ServiceButton({ href, icon, title, description }: ServiceButtonProps) {
+function ServiceAccordion({
+  item,
+  isOpen,
+  onToggle,
+}: {
+  item: ServiceItem;
+  isOpen: boolean;
+  onToggle: () => void;
+}) {
   return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="glass-card flex w-full items-center gap-3.5 rounded-xl p-3.5"
-    >
-      <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-white/[0.04]">
-        {icon}
-      </div>
-      <div className="min-w-0 flex-1">
-        <div className="text-sm font-medium text-white/90">{title}</div>
-        <div className="mt-0.5 text-[11px] leading-relaxed text-white/35">
-          {description}
+    <div className="w-full overflow-hidden rounded-xl">
+      <button
+        onClick={onToggle}
+        className="glass-card flex w-full items-center gap-3.5 rounded-xl p-3.5 text-left"
+      >
+        <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-white/[0.04]">
+          {item.icon}
+        </div>
+        <div className="min-w-0 flex-1">
+          <div className="text-sm font-medium text-white/90">{item.title}</div>
+          <div className="mt-0.5 text-[11px] leading-relaxed text-white/35">
+            {item.subtitle}
+          </div>
+        </div>
+        <ChevronDown
+          className={`h-4 w-4 flex-shrink-0 text-white/40 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
+          strokeWidth={2}
+        />
+      </button>
+      <div
+        className="grid transition-all duration-300 ease-out"
+        style={{
+          gridTemplateRows: isOpen ? "1fr" : "0fr",
+        }}
+      >
+        <div className="min-h-0 overflow-hidden">
+          <div className="px-3.5 pb-3.5 pt-2 text-[12px] leading-relaxed text-white/50">
+            {item.content}
+          </div>
         </div>
       </div>
-    </a>
+    </div>
   );
 }
 
@@ -99,6 +127,8 @@ function SocialButton({ href, icon, label }: SocialButtonProps) {
 }
 
 function Index() {
+  const [openService, setOpenService] = useState<string | null>(null);
+
   return (
     <div className="bg-spotlight relative min-h-screen overflow-hidden font-inter">
       {/* Dot grid */}
@@ -151,29 +181,53 @@ function Index() {
         <SectionLabel>Layanan</SectionLabel>
 
         <div className="flex w-full flex-col gap-2.5">
-          <ServiceButton
-            href="https://nasrudin.id/strategic-land-management/"
-            icon={<Scale className="h-[18px] w-[18px] text-white/55" strokeWidth={1.5} />}
-            title="Dispute Resolution & Litigasi"
-            description="Penyelesaian sengketa pertanahan"
+          <ServiceAccordion
+            item={{
+              id: "dispute",
+              icon: <Scale className="h-[18px] w-[18px] text-white/55" strokeWidth={1.5} />,
+              title: "Dispute Resolution & Litigasi",
+              subtitle: "Penyelesaian sengketa pertanahan",
+              content:
+                "Penanganan sengketa kepemilikan tanah, batas wilayah, dan konflik penguasaan lahan — mulai dari analisis awal hingga pendampingan litigasi maupun non-litigasi.",
+            }}
+            isOpen={openService === "dispute"}
+            onToggle={() => setOpenService(openService === "dispute" ? null : "dispute")}
           />
-          <ServiceButton
-            href="https://nasrudin.id/strategic-land-management/"
-            icon={<Building2 className="h-[18px] w-[18px] text-white/55" strokeWidth={1.5} />}
-            title="Corporate Land Services"
-            description="Layanan lahan korporasi profesional"
+          <ServiceAccordion
+            item={{
+              id: "corporate",
+              icon: <Building2 className="h-[18px] w-[18px] text-white/55" strokeWidth={1.5} />,
+              title: "Corporate Land Services",
+              subtitle: "Layanan lahan korporasi profesional",
+              content:
+                "Pendampingan akuisisi lahan korporat secara menyeluruh, termasuk analisis legalitas, negosiasi, dan kepastian hukum untuk transaksi bernilai tinggi.",
+            }}
+            isOpen={openService === "corporate"}
+            onToggle={() => setOpenService(openService === "corporate" ? null : "corporate")}
           />
-          <ServiceButton
-            href="https://nasrudin.id/strategic-land-management/"
-            icon={<FileText className="h-[18px] w-[18px] text-white/55" strokeWidth={1.5} />}
-            title="ATR/BPN & Administrasi"
-            description="Administrasi pertanahan & kepegawaian"
+          <ServiceAccordion
+            item={{
+              id: "atr-bpn",
+              icon: <FileText className="h-[18px] w-[18px] text-white/55" strokeWidth={1.5} />,
+              title: "ATR/BPN & Administrasi",
+              subtitle: "Administrasi pertanahan & kepegawaian",
+              content:
+                "Pengurusan sertifikat tanah, pendaftaran hak, perizinan, dan berbagai kebutuhan administratif pertanahan secara profesional dan efisien.",
+            }}
+            isOpen={openService === "atr-bpn"}
+            onToggle={() => setOpenService(openService === "atr-bpn" ? null : "atr-bpn")}
           />
-          <ServiceButton
-            href="https://nasrudin.id/audit-kepatuhan-hukum/"
-            icon={<Search className="h-[18px] w-[18px] text-white/55" strokeWidth={1.5} />}
-            title="Legal Due Diligence (LDD)"
-            description="Audit kepatuhan hukum properti"
+          <ServiceAccordion
+            item={{
+              id: "ldd",
+              icon: <Search className="h-[18px] w-[18px] text-white/55" strokeWidth={1.5} />,
+              title: "Legal Due Diligence (LDD)",
+              subtitle: "Audit kepatuhan hukum properti",
+              content:
+                "Audit hukum pertanahan komprehensif untuk meminimalkan risiko sebelum transaksi atau pengembangan proyek yang melibatkan aset tanah.",
+            }}
+            isOpen={openService === "ldd"}
+            onToggle={() => setOpenService(openService === "ldd" ? null : "ldd")}
           />
         </div>
 
