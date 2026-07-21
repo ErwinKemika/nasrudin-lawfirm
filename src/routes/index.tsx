@@ -23,13 +23,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Agrarian Law Intelligence — Konsultasi hukum pertanahan & lahan di Jakarta, Indonesia.",
+          "Land Intelligence — Konsultasi hukum pertanahan & lahan di Jakarta, Indonesia.",
       },
       { property: "og:title", content: "Nasrudin Law Firm" },
       {
         property: "og:description",
         content:
-          "Agrarian Law Intelligence — Konsultasi hukum pertanahan & lahan di Jakarta, Indonesia.",
+          "Land Intelligence — Konsultasi hukum pertanahan & lahan di Jakarta, Indonesia.",
       },
     ],
   }),
@@ -180,13 +180,13 @@ function Index() {
         </div>
 
         {/* Firm name */}
-        <h1 className="text-center font-playfair text-[22px] font-semibold leading-tight tracking-wide text-white">
+        <h1 className="text-center font-playfair text-[22px] font-semibold uppercase leading-tight tracking-wide text-white">
           Nasrudin Law Firm
         </h1>
 
         {/* Tagline */}
         <p className="mt-2 text-center text-[10px] font-medium uppercase tracking-[0.22em] text-white/45">
-          Agrarian Law Intelligence
+          Land Intelligence
         </p>
 
         {/* Divider */}
