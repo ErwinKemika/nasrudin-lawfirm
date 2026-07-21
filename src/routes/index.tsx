@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import logoIcon from "../assets/branding/logo-icon.png";
 import heroBanner from "../assets/branding/hero-banner.webp";
+import heroBannerDesktop from "../assets/branding/hero-banner-desktop.webp";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -135,8 +136,12 @@ function Index() {
     <div className="bg-spotlight relative min-h-screen overflow-hidden font-inter">
       {/* Hero banner */}
       <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-[420px] bg-cover bg-top opacity-90"
+        className="pointer-events-none absolute inset-x-0 top-0 h-[420px] bg-cover bg-top opacity-90 md:hidden"
         style={{ backgroundImage: `url(${heroBanner})` }}
+      />
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 hidden h-[420px] bg-cover bg-center opacity-90 md:block"
+        style={{ backgroundImage: `url(${heroBannerDesktop})` }}
       />
       <div className="pointer-events-none absolute inset-x-0 top-0 h-[420px] bg-gradient-to-b from-transparent via-brand-bg/60 to-brand-bg" />
 
