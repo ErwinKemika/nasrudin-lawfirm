@@ -12,6 +12,8 @@ import {
   Phone,
   ChevronDown,
 } from "lucide-react";
+import logoIcon from "../assets/branding/logo-icon.png";
+import heroBanner from "../assets/branding/hero-banner.webp";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -131,16 +133,23 @@ function Index() {
 
   return (
     <div className="bg-spotlight relative min-h-screen overflow-hidden font-inter">
+      {/* Hero banner */}
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 h-[420px] bg-cover bg-top opacity-40"
+        style={{ backgroundImage: `url(${heroBanner})` }}
+      />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-[420px] bg-gradient-to-b from-transparent via-brand-bg/70 to-brand-bg" />
+
       {/* Dot grid */}
       <div className="pointer-events-none absolute inset-0 dot-grid opacity-[0.12]" />
 
       <main className="relative z-10 mx-auto flex max-w-[420px] flex-col items-center px-5 py-12">
         {/* Logo */}
-        <div className="glass-card mb-5 h-[88px] w-[88px] rounded-full p-[3px]">
+        <div className="glass-card mb-5 h-[88px] w-[88px] rounded-full bg-white p-3">
           <img
-            src="https://nasrudin.id/wp-content/uploads/2026/04/logo-web-1-1024x873.png"
+            src={logoIcon}
             alt="Nasrudin Law Firm Logo"
-            className="h-full w-full rounded-full object-cover"
+            className="h-full w-full object-contain"
           />
         </div>
 

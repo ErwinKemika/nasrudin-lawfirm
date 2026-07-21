@@ -20,6 +20,9 @@ dist-ssr
 .wrangler/
 .dev.vars
 
+# Local raw design assets (optimized copies live in src/assets/branding)
+logo & banner nasrudin/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
