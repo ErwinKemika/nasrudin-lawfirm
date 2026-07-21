@@ -75,8 +75,8 @@ function ServiceAccordion({
     <div className="w-full overflow-hidden rounded-xl">
       <button
         onClick={onToggle}
-        className={`flex w-full items-center gap-3.5 rounded-xl p-3.5 text-left outline-none ${
-          isOpen ? "glow-blue-card" : "glass-card"
+        className={`glow-blue-card flex w-full items-center gap-3.5 rounded-xl p-3.5 text-left outline-none ${
+          isOpen ? "glow-blue-card--active" : ""
         }`}
       >
         <div
