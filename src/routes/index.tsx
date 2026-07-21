@@ -131,6 +131,19 @@ function SocialButton({ href, icon, label }: SocialButtonProps) {
 
 function Index() {
   const [openService, setOpenService] = useState<string | null>(null);
+  const [emailOpen, setEmailOpen] = useState(false);
+  const [emailCopied, setEmailCopied] = useState(false);
+  const email = "law@nasrudin.id";
+
+  const handleCopyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(email);
+      setEmailCopied(true);
+      setTimeout(() => setEmailCopied(false), 2000);
+    } catch {
+      // clipboard unavailable, no-op
+    }
+  };
 
   return (
     <div className="bg-spotlight relative min-h-screen overflow-hidden font-inter">
@@ -290,14 +303,19 @@ function Index() {
           />
         </div>
 
-        <div className="mt-2.5 grid w-full grid-cols-2 gap-2.5">
-          <a
-            href="mailto:law@nasrudin.id"
+        <div className="relative mt-2.5 grid w-full grid-cols-2 gap-2.5">
+          <button
+            type="button"
+            onClick={() => setEmailOpen((v) => !v)}
             className="glass-card flex items-center justify-center gap-2 rounded-xl py-3.5"
           >
             <Mail className="h-4 w-4 text-white/60" strokeWidth={1.5} />
             <span className="text-xs font-medium text-white/70">Email</span>
-          </a>
+            <ChevronDown
+              className={`h-3.5 w-3.5 text-white/40 transition-transform duration-300 ${emailOpen ? "rotate-180" : ""}`}
+              strokeWidth={2}
+            />
+          </button>
           <a
             href="https://wa.me/6287884100200"
             target="_blank"
@@ -307,6 +325,29 @@ function Index() {
             <Phone className="h-4 w-4 text-white/60" strokeWidth={1.5} />
             <span className="text-xs font-medium text-white/70">WhatsApp</span>
           </a>
+
+          {emailOpen && (
+            <div className="glass-card absolute left-0 top-[calc(100%+8px)] z-20 flex w-full flex-col gap-2.5 rounded-xl p-3.5">
+              <span className="select-all text-center text-sm font-medium text-white/90">
+                {email}
+              </span>
+              <div className="grid grid-cols-2 gap-2">
+                <button
+                  type="button"
+                  onClick={handleCopyEmail}
+                  className="rounded-lg bg-white/[0.06] py-2 text-xs font-medium text-white/70 transition-colors hover:bg-white/[0.1]"
+                >
+                  {emailCopied ? "Tersalin!" : "Salin Email"}
+                </button>
+                <a
+                  href={`mailto:${email}`}
+                  className="rounded-lg bg-white/[0.06] py-2 text-center text-xs font-medium text-white/70 transition-colors hover:bg-white/[0.1]"
+                >
+                  Buka Mail App
+                </a>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Footer */}
