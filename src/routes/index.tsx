@@ -279,7 +279,7 @@ function Index() {
             label="Instagram"
           />
           <SocialButton
-            href="https://nasrudin.id"
+            href="https://nasrudin.id/"
             icon={<Globe className="h-5 w-5" strokeWidth={1.5} />}
             label="Website"
           />
