@@ -3,7 +3,7 @@ import {
   Scale,
   Building2,
   FileText,
-  Search,
+  Briefcase,
   MapPin,
   Mail,
   Globe,
@@ -194,49 +194,51 @@ function Index() {
             item={{
               id: "dispute",
               icon: <Scale className="h-[18px] w-[18px] text-white/55" strokeWidth={1.5} />,
-              title: "Dispute Resolution & Litigasi",
-              subtitle: "Penyelesaian sengketa pertanahan",
+              title: "Land Dispute Resolution",
+              subtitle: "Litigasi, PTUN, mediasi & negosiasi sengketa tanah",
               content:
-                "Penanganan sengketa kepemilikan tanah, batas wilayah, dan konflik penguasaan lahan — mulai dari analisis awal hingga pendampingan litigasi maupun non-litigasi.",
+                "Pendampingan hukum dalam penyelesaian sengketa pertanahan melalui litigasi di Pengadilan Negeri, Pengadilan Tata Usaha Negara (PTUN), mediasi, negosiasi, serta berbagai mekanisme penyelesaian sengketa di luar pengadilan. Setiap perkara ditangani dengan strategi hukum yang terukur untuk melindungi hak, kepentingan, dan kepastian hukum klien.",
             }}
             isOpen={openService === "dispute"}
             onToggle={() => setOpenService(openService === "dispute" ? null : "dispute")}
           />
           <ServiceAccordion
             item={{
+              id: "administration",
+              icon: <FileText className="h-[18px] w-[18px] text-white/55" strokeWidth={1.5} />,
+              title: "Land Administration Services",
+              subtitle: "Sertifikasi, peralihan hak & administrasi pertanahan",
+              content:
+                "Pendampingan hukum yang komprehensif dalam administrasi dan legalitas pertanahan, meliputi sertifikasi hak atas tanah, pendampingan transaksi peralihan hak (antara lain melalui jual beli, hibah, waris, lelang, tukar-menukar, pemasukan ke dalam perusahaan (inbreng), dan bentuk peralihan hak lainnya), pemecahan dan penggabungan bidang, pemberian, peningkatan, perpanjangan, serta pembaruan hak atas tanah, pengurusan Persetujuan Bangunan Gedung (PBG), serta berbagai layanan administrasi pertanahan lainnya. Setiap proses ditangani secara profesional dengan mengedepankan kepastian hukum dan perlindungan kepentingan klien.",
+            }}
+            isOpen={openService === "administration"}
+            onToggle={() =>
+              setOpenService(openService === "administration" ? null : "administration")
+            }
+          />
+          <ServiceAccordion
+            item={{
               id: "corporate",
               icon: <Building2 className="h-[18px] w-[18px] text-white/55" strokeWidth={1.5} />,
               title: "Corporate Land Services",
-              subtitle: "Layanan lahan korporasi profesional",
+              subtitle: "Due diligence & pengelolaan aset lahan korporasi",
               content:
-                "Pendampingan akuisisi lahan korporat secara menyeluruh, termasuk analisis legalitas, negosiasi, dan kepastian hukum untuk transaksi bernilai tinggi.",
+                "Pendampingan hukum strategis bagi perusahaan, investor, dan pengembang dalam pengelolaan aset pertanahan, meliputi legal due diligence, akuisisi lahan, kepatuhan regulasi, perlindungan aset, serta mitigasi risiko hukum. Setiap layanan dirancang untuk mendukung pengambilan keputusan yang tepat, memberikan kepastian hukum, dan melindungi keberlangsungan investasi maupun kegiatan usaha.",
             }}
             isOpen={openService === "corporate"}
             onToggle={() => setOpenService(openService === "corporate" ? null : "corporate")}
           />
           <ServiceAccordion
             item={{
-              id: "atr-bpn",
-              icon: <FileText className="h-[18px] w-[18px] text-white/55" strokeWidth={1.5} />,
-              title: "ATR/BPN & Administrasi",
-              subtitle: "Administrasi pertanahan & kepegawaian",
+              id: "integrated",
+              icon: <Briefcase className="h-[18px] w-[18px] text-white/55" strokeWidth={1.5} />,
+              title: "Integrated Legal Solutions",
+              subtitle: "Solusi hukum korporasi, pidana khusus & bisnis terpadu",
               content:
-                "Pengurusan sertifikat tanah, pendaftaran hak, perizinan, dan berbagai kebutuhan administratif pertanahan secara profesional dan efisien.",
+                "Layanan hukum yang komprehensif bagi individu maupun korporasi di berbagai bidang hukum, meliputi litigasi korporasi, kepailitan dan PKPU, sengketa bisnis, hukum perbankan, merger dan akuisisi (M&A), penyusunan dan reviu kontrak, perpajakan, ketenagakerjaan, Hak Kekayaan Intelektual (HAKI), serta hukum pidana khusus, termasuk tindak pidana korupsi, tindak pidana pencucian uang (TPPU), tindak pidana perpajakan, tindak pidana perbankan, dan tindak pidana korporasi. Setiap layanan ditangani secara profesional dengan solusi hukum yang strategis dan efektif.",
             }}
-            isOpen={openService === "atr-bpn"}
-            onToggle={() => setOpenService(openService === "atr-bpn" ? null : "atr-bpn")}
-          />
-          <ServiceAccordion
-            item={{
-              id: "ldd",
-              icon: <Search className="h-[18px] w-[18px] text-white/55" strokeWidth={1.5} />,
-              title: "Legal Due Diligence (LDD)",
-              subtitle: "Audit kepatuhan hukum properti",
-              content:
-                "Audit hukum pertanahan komprehensif untuk meminimalkan risiko sebelum transaksi atau pengembangan proyek yang melibatkan aset tanah.",
-            }}
-            isOpen={openService === "ldd"}
-            onToggle={() => setOpenService(openService === "ldd" ? null : "ldd")}
+            isOpen={openService === "integrated"}
+            onToggle={() => setOpenService(openService === "integrated" ? null : "integrated")}
           />
         </div>
 
