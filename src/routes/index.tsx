@@ -244,7 +244,7 @@ function Index() {
         <SectionLabel>Lokasi</SectionLabel>
 
         <a
-          href="https://maps.google.com/?q=Nasrudin+Partners+Law+Firm+Jakarta"
+          href="https://share.google/A35NpmgZ0QWhRBBsX"
           target="_blank"
           rel="noopener noreferrer"
           className="glass-card group flex w-full items-center gap-3.5 rounded-xl p-4"
