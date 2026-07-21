@@ -75,9 +75,15 @@ function ServiceAccordion({
     <div className="w-full overflow-hidden rounded-xl">
       <button
         onClick={onToggle}
-        className="glass-card flex w-full items-center gap-3.5 rounded-xl p-3.5 text-left"
+        className={`flex w-full items-center gap-3.5 rounded-xl p-3.5 text-left outline-none ${
+          isOpen ? "glow-blue-card" : "glass-card"
+        }`}
       >
-        <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-white/[0.04]">
+        <div
+          className={`flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full transition-colors duration-200 ${
+            isOpen ? "bg-brand-accent/15" : "bg-white/[0.04]"
+          }`}
+        >
           {item.icon}
         </div>
         <div className="min-w-0 flex-1">
@@ -87,7 +93,9 @@ function ServiceAccordion({
           </div>
         </div>
         <ChevronDown
-          className={`h-4 w-4 flex-shrink-0 text-white/40 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
+          className={`h-4 w-4 flex-shrink-0 transition-all duration-300 ${
+            isOpen ? "rotate-180 text-brand-accent" : "text-white/40"
+          }`}
           strokeWidth={2}
         />
       </button>
