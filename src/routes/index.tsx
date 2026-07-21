@@ -181,7 +181,7 @@ function Index() {
               Konsultasi via WhatsApp
             </div>
             <div className="mt-0.5 text-xs text-white/40">
-              0878-8410-0200 · Respon cepat
+              0878-84-100-200 · Respon cepat
             </div>
           </div>
         </a>
