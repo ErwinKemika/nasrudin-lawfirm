@@ -274,7 +274,7 @@ function Index() {
 
         <div className="grid w-full grid-cols-3 gap-2.5">
           <SocialButton
-            href="https://www.instagram.com/nasrudinlaw"
+            href="https://www.instagram.com/nasrudinlaw/"
             icon={<Instagram className="h-5 w-5" strokeWidth={1.5} />}
             label="Instagram"
           />
@@ -284,7 +284,7 @@ function Index() {
             label="Website"
           />
           <SocialButton
-            href="#"
+            href="https://id.linkedin.com/in/nasrudin-law-4710a11aa"
             icon={<Linkedin className="h-5 w-5" strokeWidth={1.5} />}
             label="LinkedIn"
           />
