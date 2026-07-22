@@ -220,9 +220,16 @@
   }
 }
 
+@property --shimmer-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
 @utility shimmer-border {
   position: relative;
   isolation: isolate;
+  overflow: hidden;
 
   &::before {
     content: "";
@@ -232,7 +239,7 @@
     border-radius: inherit;
     padding: 1.5px;
     background: conic-gradient(
-      from 0deg,
+      from var(--shimmer-angle),
       transparent 0%,
       rgba(97, 198, 241, 0.9) 12%,
       transparent 26%
@@ -245,12 +252,12 @@
       linear-gradient(#fff 0 0) content-box,
       linear-gradient(#fff 0 0);
     mask-composite: exclude;
-    animation: shimmer-rotate 3.5s linear infinite;
+    animation: shimmer-angle-spin 3.5s linear infinite;
   }
 }
 
-@keyframes shimmer-rotate {
+@keyframes shimmer-angle-spin {
   to {
-    transform: rotate(360deg);
+    --shimmer-angle: 360deg;
   }
 }
