@@ -12,6 +12,7 @@ import {
   Phone,
   ChevronDown,
 } from "lucide-react";
+import { GlowEffect } from "@/components/ui/glow-effect";
 import logoIcon from "../assets/branding/logo-icon.png";
 import heroBanner from "../assets/branding/hero-banner.webp";
 import heroBannerDesktop from "../assets/branding/hero-banner-desktop.webp";
@@ -72,42 +73,52 @@ function ServiceAccordion({
   onToggle: () => void;
 }) {
   return (
-    <div className="w-full overflow-hidden rounded-xl">
-      <button
-        onClick={onToggle}
-        className={`glow-blue-card flex w-full items-center gap-3.5 rounded-xl p-3.5 text-left outline-none ${
-          isOpen ? "glow-blue-card--active" : ""
-        }`}
-      >
-        <div
-          className={`flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full transition-colors duration-200 ${
-            isOpen ? "bg-brand-accent/15" : "bg-white/[0.04]"
+    <div className="relative w-full">
+      <GlowEffect
+        colors={["#27419A", "#61C6F1"]}
+        mode="breathe"
+        blur="soft"
+        scale={0.96}
+        duration={4.5}
+        className="rounded-xl opacity-60"
+      />
+      <div className="relative w-full overflow-hidden rounded-xl">
+        <button
+          onClick={onToggle}
+          className={`glow-blue-card flex w-full items-center gap-3.5 rounded-xl p-3.5 text-left outline-none ${
+            isOpen ? "glow-blue-card--active" : ""
           }`}
         >
-          {item.icon}
-        </div>
-        <div className="min-w-0 flex-1">
-          <div className="text-sm font-medium text-white/90">{item.title}</div>
-          <div className="mt-0.5 text-[11px] leading-relaxed text-white/35">
-            {item.subtitle}
+          <div
+            className={`flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full transition-colors duration-200 ${
+              isOpen ? "bg-brand-accent/15" : "bg-white/[0.04]"
+            }`}
+          >
+            {item.icon}
           </div>
-        </div>
-        <ChevronDown
-          className={`h-4 w-4 flex-shrink-0 transition-all duration-300 ${
-            isOpen ? "rotate-180 text-brand-accent" : "text-white/40"
-          }`}
-          strokeWidth={2}
-        />
-      </button>
-      <div
-        className="grid transition-all duration-300 ease-out"
-        style={{
-          gridTemplateRows: isOpen ? "1fr" : "0fr",
-        }}
-      >
-        <div className="min-h-0 overflow-hidden">
-          <div className="px-3.5 pb-3.5 pt-2 text-[12px] leading-relaxed text-white/50">
-            {item.content}
+          <div className="min-w-0 flex-1">
+            <div className="text-sm font-medium text-white/90">{item.title}</div>
+            <div className="mt-0.5 text-[11px] leading-relaxed text-white/35">
+              {item.subtitle}
+            </div>
+          </div>
+          <ChevronDown
+            className={`h-4 w-4 flex-shrink-0 transition-all duration-300 ${
+              isOpen ? "rotate-180 text-brand-accent" : "text-white/40"
+            }`}
+            strokeWidth={2}
+          />
+        </button>
+        <div
+          className="grid transition-all duration-300 ease-out"
+          style={{
+            gridTemplateRows: isOpen ? "1fr" : "0fr",
+          }}
+        >
+          <div className="min-h-0 overflow-hidden">
+            <div className="px-3.5 pb-3.5 pt-2 text-[12px] leading-relaxed text-white/50">
+              {item.content}
+            </div>
           </div>
         </div>
       </div>
@@ -197,7 +208,7 @@ function Index() {
           href="https://wa.me/6287884100200"
           target="_blank"
           rel="noopener noreferrer"
-          className="glass-card group flex w-full items-center gap-3.5 rounded-xl p-4"
+          className="glass-card shimmer-border group flex w-full items-center gap-3.5 rounded-xl p-4"
         >
           <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-[#25D366]/15">
             <WhatsAppIcon className="h-[22px] w-[22px] text-[#25D366]" />

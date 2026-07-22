@@ -186,12 +186,68 @@
   &::before {
     content: "";
     position: fixed;
-    inset: 0;
+    inset: -10%;
     z-index: -1;
     pointer-events: none;
-    background:
-      radial-gradient(ellipse 120% 100% at 0% 0%, rgba(39, 65, 154, 0.9) 0%, rgba(39, 65, 154, 0.45) 18%, transparent 55%),
-      radial-gradient(ellipse 90% 80% at 20% 5%, rgba(97, 198, 241, 0.25) 0%, transparent 50%),
-      #050a1a;
+    background-image:
+      radial-gradient(ellipse 55% 45% at 15% 10%, rgba(39, 65, 154, 0.9) 0%, transparent 60%),
+      radial-gradient(ellipse 45% 40% at 85% 15%, rgba(97, 198, 241, 0.35) 0%, transparent 55%),
+      radial-gradient(ellipse 50% 45% at 50% 95%, rgba(39, 65, 154, 0.55) 0%, transparent 60%);
+    background-size: 200% 200%;
+    background-color: #050a1a;
+    animation: aurora-drift 26s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes aurora-drift {
+  0% {
+    background-position:
+      0% 0%,
+      100% 0%,
+      50% 100%;
+  }
+  50% {
+    background-position:
+      25% 20%,
+      75% 30%,
+      40% 75%;
+  }
+  100% {
+    background-position:
+      0% 0%,
+      100% 0%,
+      50% 100%;
+  }
+}
+
+@utility shimmer-border {
+  position: relative;
+  isolation: isolate;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    z-index: -1;
+    border-radius: inherit;
+    padding: 1.5px;
+    background: conic-gradient(
+      from 0deg,
+      transparent 0%,
+      rgba(97, 198, 241, 0.9) 12%,
+      transparent 26%
+    );
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: shimmer-rotate 3.5s linear infinite;
+  }
+}
+
+@keyframes shimmer-rotate {
+  to {
+    transform: rotate(360deg);
   }
 }
