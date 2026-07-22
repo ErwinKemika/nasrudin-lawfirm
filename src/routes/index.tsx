@@ -77,10 +77,10 @@ function ServiceAccordion({
       <GlowEffect
         colors={["#27419A", "#61C6F1"]}
         mode="breathe"
-        blur="soft"
-        scale={0.96}
+        blur="medium"
+        scale={0.9}
         duration={4.5}
-        className="rounded-xl opacity-60"
+        className="rounded-xl opacity-50 [mask-image:radial-gradient(ellipse_65%_65%_at_50%_50%,black_0%,transparent_100%)]"
       />
       <div className="relative w-full overflow-hidden rounded-xl">
         <button
