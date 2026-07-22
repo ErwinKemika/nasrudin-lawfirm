@@ -208,7 +208,7 @@ function Index() {
           href="https://wa.me/6287884100200"
           target="_blank"
           rel="noopener noreferrer"
-          className="glass-card shimmer-border group flex w-full items-center gap-3.5 rounded-xl p-4"
+          className="glass-card shimmer-border group relative flex w-full items-center gap-3.5 overflow-hidden rounded-xl p-4"
         >
           <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-[#25D366]/15">
             <WhatsAppIcon className="h-[22px] w-[22px] text-[#25D366]" />

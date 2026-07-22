@@ -227,7 +227,7 @@
   &::before {
     content: "";
     position: absolute;
-    inset: -1px;
+    inset: 0;
     z-index: -1;
     border-radius: inherit;
     padding: 1.5px;
@@ -241,6 +241,9 @@
       linear-gradient(#fff 0 0) content-box,
       linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
     mask-composite: exclude;
     animation: shimmer-rotate 3.5s linear infinite;
   }
